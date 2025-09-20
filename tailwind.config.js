@@ -7,8 +7,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        brand: "#22c55e",        // green brand color
-        "brand-dark": "#16a34a",  // darker shade for hover effects
+        brand: "#22c55e",        // your primary brand green
+        "brand-dark": "#16a34a",  // hover/darker shade
         primary: "#22c55e",
         secondary: "#f59e0b",
       },
