@@ -7,8 +7,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#22c55e", // green accent for your portfolio
-        secondary: "#f59e0b", // subtle gold accent
+        brand: "#22c55e",      // green brand color for portfolio highlights
+        primary: "#22c55e",    // can be used interchangeably with brand
+        secondary: "#f59e0b",  // subtle gold accent
       },
       fontFamily: {
         sans: ["Inter", "ui-sans-serif", "system-ui"],
