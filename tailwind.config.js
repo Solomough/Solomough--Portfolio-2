@@ -7,9 +7,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        brand: "#22c55e",      // green brand color for portfolio highlights
-        primary: "#22c55e",    // can be used interchangeably with brand
-        secondary: "#f59e0b",  // subtle gold accent
+        brand: "#22c55e",        // green brand color
+        "brand-dark": "#16a34a",  // darker shade for hover effects
+        primary: "#22c55e",
+        secondary: "#f59e0b",
       },
       fontFamily: {
         sans: ["Inter", "ui-sans-serif", "system-ui"],
