@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root { height: 100%; }
+
+/* Simple utility to make the hero text animate slightly */
+.hero-gradient {
+  background: linear-gradient(90deg, rgba(183,147,95,0.08), rgba(11,107,86,0.04));
+}
