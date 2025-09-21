@@ -8,14 +8,14 @@ function Hero() {
     <section
       className="relative w-full h-screen flex items-center justify-center text-center overflow-hidden"
       style={{
-        backgroundImage: `linear-gradient(to bottom right, #87CEEB, #00BFFF), url(${banner})`,
+        backgroundImage: `url(${banner})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
       }}
     >
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+      {/* Dark overlay with gradient blending to rest of site */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-blue-950/50"></div>
 
       {/* Content */}
       <motion.div
