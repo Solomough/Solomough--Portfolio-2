@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
 
 function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const links = [
     { name: "Home", href: "#hero" },
@@ -15,35 +15,42 @@ function Navbar() {
   ];
 
   return (
-    <nav className="fixed w-full bg-white shadow-md z-50">
-      <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+    <nav className="fixed w-full z-50 bg-white shadow-md">
+      <div className="max-w-6xl mx-auto px-6 md:px-16 flex justify-between items-center h-16">
+        {/* Logo */}
         <div className="text-2xl font-bold text-green-600">Solomough</div>
-        {/* Desktop Links */}
-        <ul className="hidden md:flex space-x-8 text-gray-700 font-semibold">
+
+        {/* Desktop Menu */}
+        <ul className="hidden md:flex space-x-8 text-gray-900 font-semibold">
           {links.map((link, i) => (
             <li key={i}>
-              <a href={link.href} className="hover:text-green-600 transition">
+              <a
+                href={link.href}
+                className="hover:text-green-600 transition-colors"
+              >
                 {link.name}
               </a>
             </li>
           ))}
         </ul>
-        {/* Mobile Hamburger */}
+
+        {/* Mobile Menu Button */}
         <div className="md:hidden">
-          <button onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? <X className="w-6 h-6 text-green-600" /> : <Menu className="w-6 h-6 text-green-600" />}
+          <button onClick={() => setOpen(!open)}>
+            {open ? <X className="w-6 h-6 text-gray-900" /> : <Menu className="w-6 h-6 text-gray-900" />}
           </button>
         </div>
       </div>
+
       {/* Mobile Menu */}
-      {isOpen && (
-        <ul className="md:hidden bg-white shadow-md flex flex-col space-y-4 px-6 py-4 text-gray-700 font-semibold">
+      {open && (
+        <ul className="md:hidden bg-white shadow-lg flex flex-col space-y-4 px-6 py-4">
           {links.map((link, i) => (
             <li key={i}>
               <a
                 href={link.href}
-                className="block hover:text-green-600 transition"
-                onClick={() => setIsOpen(false)}
+                className="block text-gray-900 font-semibold py-2 hover:text-green-600 transition-colors"
+                onClick={() => setOpen(false)}
               >
                 {link.name}
               </a>
