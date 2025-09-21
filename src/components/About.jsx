@@ -1,8 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { CheckCircle, Star, Globe, Code } from "lucide-react";
-import dp from "./assets/images/dp.jpg";
-import banner from "./assets/images/banner.jpg";
+import dp from "../assets/images/dp.jpg";       // ✅ Corrected relative path
+import banner from "../assets/images/banner.jpg"; // ✅ Corrected relative path
 
 const aboutData = [
   {
