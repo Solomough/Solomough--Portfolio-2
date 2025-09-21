@@ -16,11 +16,24 @@ function FaithBooks() {
       link: "#", // 🔑 Replace with real link later
       cover: "https://source.unsplash.com/400x500/?faith,hope", // 🔑 Replace with your real book cover
     },
+    {
+      title: "End of Age",
+      desc: "Exploring the spiritual revelations and insights for the modern believer in a world of change.",
+      link: "#",
+      cover: "https://source.unsplash.com/400x500/?spirituality,book",
+    },
+    {
+      title: "Beginning of Age",
+      desc: "A visionary guide for those stepping into purpose, empowerment, and kingdom-minded innovation.",
+      link: "#",
+      cover: "https://source.unsplash.com/400x500/?inspiration,book",
+    },
   ];
 
   return (
     <section id="faithbooks" className="py-20 bg-gray-50 px-6 md:px-16">
       <div className="max-w-6xl mx-auto text-center">
+        {/* Heading */}
         <motion.h2
           className="text-3xl md:text-5xl font-bold text-gray-900"
           initial={{ opacity: 0, y: -20 }}
@@ -42,13 +55,13 @@ function FaithBooks() {
         </motion.p>
 
         {/* Books Grid */}
-        <div className="mt-12 grid md:grid-cols-2 gap-8">
+        <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {books.map((book, i) => (
             <motion.div
               key={i}
-              className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl hover:scale-105 transition transform"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: i * 0.2 }}
             >
               <img
@@ -57,9 +70,7 @@ function FaithBooks() {
                 className="w-full h-80 object-cover"
               />
               <div className="p-6 text-left">
-                <h3 className="text-xl font-bold text-gray-900">
-                  {book.title}
-                </h3>
+                <h3 className="text-xl font-bold text-gray-900">{book.title}</h3>
                 <p className="mt-2 text-gray-700">{book.desc}</p>
                 <a
                   href={book.link}
@@ -74,7 +85,7 @@ function FaithBooks() {
           ))}
         </div>
 
-        {/* Extra highlight */}
+        {/* Faith Highlight */}
         <motion.div
           className="mt-16 bg-green-600 text-white p-8 rounded-2xl shadow-lg"
           initial={{ opacity: 0, scale: 0.9 }}
