@@ -12,7 +12,7 @@ function Navbar() {
     { name: "Skills", href: "#skills" },
     { name: "Projects", href: "#projects" },
     { name: "Services", href: "#services" },
-    { name: "Books", href: "#faithbooks" },
+    { name: "Faith Books", href: "#faithbooks" },
     { name: "Contact", href: "#contact" },
   ];
 
@@ -23,12 +23,12 @@ function Navbar() {
         <div className="text-2xl font-bold text-green-600">Solomough</div>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex space-x-8">
+        <ul className="hidden md:flex space-x-8 font-medium text-gray-900">
           {navLinks.map((link) => (
             <li key={link.name}>
               <a
                 href={link.href}
-                className="text-gray-900 font-medium hover:text-green-600 transition"
+                className="hover:text-green-600 transition-colors"
               >
                 {link.name}
               </a>
@@ -39,7 +39,7 @@ function Navbar() {
         {/* Mobile Hamburger */}
         <div className="md:hidden">
           <button onClick={toggleMenu} className="focus:outline-none">
-            {isOpen ? <X className="w-6 h-6 text-gray-900" /> : <Menu className="w-6 h-6 text-gray-900" />}
+            {isOpen ? <X className="w-6 h-6 text-green-600" /> : <Menu className="w-6 h-6 text-green-600" />}
           </button>
         </div>
       </div>
@@ -53,7 +53,7 @@ function Navbar() {
                 <a
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="block text-gray-900 font-medium hover:text-green-600 transition"
+                  className="block font-medium text-gray-900 hover:text-green-600 transition-colors"
                 >
                   {link.name}
                 </a>
