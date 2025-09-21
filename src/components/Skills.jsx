@@ -11,6 +11,8 @@ import {
   BookOpen,
   Brush,
   Camera,
+  Mail,
+  Download,
 } from "lucide-react";
 
 const skills = [
@@ -42,6 +44,16 @@ const skills = [
   },
 ];
 
+const coreValues = [
+  "Consistency",
+  "Integrity",
+  "Visionary Leadership",
+  "Wisdom",
+  "Influence",
+  "Steadfastness",
+  "Faith-driven Excellence",
+];
+
 function Skills() {
   return (
     <section id="skills" className="py-20 bg-gray-50 px-6 md:px-16">
@@ -63,7 +75,8 @@ function Skills() {
         >
           Blending <span className="font-semibold">technology</span>,{" "}
           <span className="font-semibold">creativity</span>, and{" "}
-          <span className="font-semibold">faith-driven leadership</span> to build with excellence.
+          <span className="font-semibold text-green-700">faith-driven leadership</span> 
+          to build with excellence.
         </motion.p>
 
         {/* Skills Grid */}
@@ -83,7 +96,7 @@ function Skills() {
                 {group.items.map((skill, i) => (
                   <div key={i}>
                     <div className="flex items-center mb-2 group">
-                      <span className="text-green-600 group-hover:text-green-700 transition-colors">
+                      <span className="text-green-600 group-hover:text-yellow-500 transition-colors">
                         {skill.icon}
                       </span>
                       <span className="ml-3 font-semibold text-gray-800 group-hover:text-green-700 transition-colors">
@@ -92,7 +105,7 @@ function Skills() {
                     </div>
                     <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
                       <motion.div
-                        className="bg-green-600 h-3 rounded-full group-hover:bg-green-700 transition-colors"
+                        className="bg-gradient-to-r from-green-600 to-yellow-500 h-3 rounded-full"
                         initial={{ width: 0 }}
                         animate={{ width: `${skill.level}%` }}
                         transition={{ duration: 1.2, delay: 0.3 + i * 0.2 }}
@@ -104,6 +117,54 @@ function Skills() {
               </div>
             </motion.div>
           ))}
+        </div>
+
+        {/* Core Values Badges */}
+        <motion.h3
+          className="text-2xl font-bold text-green-700 mt-16 mb-6 text-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+        >
+          Core Values & Life Skills
+        </motion.h3>
+        <div className="flex flex-wrap justify-center gap-3 mb-12">
+          {coreValues.map((value, idx) => (
+            <motion.span
+              key={idx}
+              className="px-4 py-2 rounded-full bg-green-100 text-green-800 font-medium border border-green-300 hover:bg-green-600 hover:text-white transition"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: idx * 0.1 }}
+            >
+              {value}
+            </motion.span>
+          ))}
+        </div>
+
+        {/* Action Buttons */}
+        <div className="flex flex-wrap justify-center gap-6">
+          <motion.a
+            href="mailto:zahemenmoughkaa@gmail.com"
+            className="inline-flex items-center px-6 py-3 bg-green-700 text-white rounded-full shadow hover:bg-green-800 transition"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+          >
+            <Mail className="w-5 h-5 mr-2" />
+            Contact Me
+          </motion.a>
+
+          <motion.a
+            href="/resume.pdf"
+            download
+            className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-green-600 to-yellow-500 text-white rounded-full shadow hover:opacity-90 transition"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6, duration: 0.6 }}
+          >
+            <Download className="w-5 h-5 mr-2" />
+            Download Resume
+          </motion.a>
         </div>
       </div>
     </section>
