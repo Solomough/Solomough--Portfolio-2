@@ -24,32 +24,50 @@ function App() {
       </section>
 
       {/* About Me Section */}
-      <section id="about" className="py-20 px-6 md:px-16 bg-gray-50 w-full max-w-full">
+      <section
+        id="about"
+        className="py-20 px-4 sm:px-6 md:px-16 bg-gray-50 w-full max-w-full"
+      >
         <About />
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-20 px-6 md:px-16 bg-white w-full max-w-full">
+      <section
+        id="skills"
+        className="py-20 px-4 sm:px-6 md:px-16 bg-white w-full max-w-full"
+      >
         <Skills />
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 px-6 md:px-16 bg-gray-50 w-full max-w-full">
+      <section
+        id="projects"
+        className="py-20 px-4 sm:px-6 md:px-16 bg-gray-50 w-full max-w-full"
+      >
         <Projects />
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 px-6 md:px-16 bg-white w-full max-w-full">
+      <section
+        id="services"
+        className="py-20 px-4 sm:px-6 md:px-16 bg-white w-full max-w-full"
+      >
         <Services />
       </section>
 
       {/* Faith Books Section */}
-      <section id="faithbooks" className="py-20 px-6 md:px-16 bg-gray-50 w-full max-w-full">
+      <section
+        id="faithbooks"
+        className="py-20 px-4 sm:px-6 md:px-16 bg-gray-50 w-full max-w-full"
+      >
         <FaithBooks />
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 px-6 md:px-16 bg-white w-full max-w-full">
+      <section
+        id="contact"
+        className="py-20 px-4 sm:px-6 md:px-16 bg-white w-full max-w-full"
+      >
         <Contact />
       </section>
 
