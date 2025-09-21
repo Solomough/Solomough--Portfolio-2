@@ -1,3 +1,4 @@
+
 import React from "react";
 import { motion } from "framer-motion";
 import dp from "../assets/images/dp.jpg";
@@ -10,7 +11,7 @@ function Hero() {
       style={{
         backgroundImage: `url(${banner})`,
         backgroundSize: "cover",
-        backgroundPosition: "center center",
+        backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
       }}
     >
@@ -42,9 +43,6 @@ function Hero() {
           to inspire innovation and impact globally.
         </p>
       </motion.div>
-
-      {/* Gradient overlay for smooth visibility */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/40"></div>
     </section>
   );
 }
