@@ -1,4 +1,3 @@
-
 import React from "react";
 import { motion } from "framer-motion";
 import dp from "../assets/images/dp.jpg";
@@ -9,7 +8,7 @@ function Hero() {
     <section
       className="relative w-full h-screen flex items-center justify-center text-center overflow-hidden"
       style={{
-        backgroundImage: `url(${banner})`,
+        backgroundImage: `linear-gradient(to bottom right, #87CEEB, #00BFFF), url(${banner})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
