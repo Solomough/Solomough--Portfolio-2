@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { motion, useAnimation } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
 import {
   Code2,
   Database,
@@ -47,17 +47,15 @@ function SkillCircle({ skill }) {
   const stroke = 6;
   const normalizedRadius = radius - stroke * 2;
   const circumference = normalizedRadius * 2 * Math.PI;
-  const controls = useAnimation();
-
-  useEffect(() => {
-    controls.start({ strokeDashoffset: circumference - (skill.level / 100) * circumference });
-  }, [controls, circumference, skill.level]);
 
   return (
     <motion.div
       className="flex flex-col items-center space-y-2 cursor-pointer"
       whileHover={{ scale: 1.1 }}
       transition={{ type: "spring", stiffness: 200 }}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
     >
       <div className="relative w-24 h-24">
         <svg height={radius * 2} width={radius * 2}>
@@ -85,8 +83,10 @@ function SkillCircle({ skill }) {
             strokeDasharray={circumference}
             strokeDashoffset={circumference}
             strokeLinecap="round"
-            animate={controls}
+            initial={{ strokeDashoffset: circumference }}
+            whileInView={{ strokeDashoffset: circumference - (skill.level / 100) * circumference }}
             transition={{ duration: 1.5, ease: "easeInOut" }}
+            viewport={{ once: true, amount: 0.3 }}
           />
         </svg>
         <div className="absolute inset-0 flex items-center justify-center text-sm font-bold text-gray-900">
@@ -105,20 +105,21 @@ function Skills() {
   return (
     <section id="skills" className="py-20 bg-gray-50 px-6 md:px-16">
       <div className="max-w-6xl mx-auto text-center">
-        {/* Heading */}
         <motion.h2
           className="text-3xl md:text-5xl font-bold text-gray-900 mb-4"
           initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
         >
           My <span className="text-green-600">Skills & Expertise</span>
         </motion.h2>
         <motion.p
           className="text-lg text-gray-700 mb-12"
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.3 }}
+          viewport={{ once: true }}
         >
           Blending <span className="font-semibold">technology</span>,{" "}
           <span className="font-semibold">creativity</span>, and{" "}
@@ -128,14 +129,20 @@ function Skills() {
         {/* Skills Grid */}
         <div className="grid md:grid-cols-3 gap-12 justify-items-center">
           {skills.map((group, idx) => (
-            <div key={idx} className="space-y-8">
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: idx * 0.3 }}
+              viewport={{ once: true }}
+            >
               <h3 className="text-xl font-bold text-gray-900 mb-4">{group.category}</h3>
               <div className="grid grid-cols-2 gap-6">
                 {group.items.map((skill, i) => (
                   <SkillCircle key={i} skill={skill} />
                 ))}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
