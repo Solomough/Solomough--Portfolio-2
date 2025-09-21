@@ -1,9 +1,12 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import dp from "../assets/images/dp.jpg";
 import banner from "../assets/images/banner.jpg";
 
 function Hero() {
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 500], [0, 50]); // subtle parallax
+
   return (
     <section
       className="relative w-full h-screen flex items-center justify-center text-center overflow-hidden"
@@ -17,8 +20,9 @@ function Hero() {
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-black bg-opacity-50"></div>
 
-      {/* Content */}
+      {/* Content with parallax */}
       <motion.div
+        style={{ y }}
         className="relative z-10 flex flex-col items-center justify-center space-y-4 px-4 sm:px-6 md:px-0"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
