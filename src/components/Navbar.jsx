@@ -2,31 +2,33 @@ import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
 
 function Navbar() {
-  const [open, setOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-  const links = [
+  const toggleMenu = () => setIsOpen(!isOpen);
+
+  const navLinks = [
     { name: "Home", href: "#hero" },
     { name: "About", href: "#about" },
     { name: "Skills", href: "#skills" },
     { name: "Projects", href: "#projects" },
     { name: "Services", href: "#services" },
-    { name: "Faith Books", href: "#faithbooks" },
+    { name: "Books", href: "#faithbooks" },
     { name: "Contact", href: "#contact" },
   ];
 
   return (
-    <nav className="fixed w-full z-50 bg-white shadow-md">
+    <nav className="fixed top-0 left-0 w-full bg-white shadow-md z-50">
       <div className="max-w-6xl mx-auto px-6 md:px-16 flex justify-between items-center h-16">
-        {/* Logo */}
+        {/* Brand */}
         <div className="text-2xl font-bold text-green-600">Solomough</div>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex space-x-8 text-gray-900 font-semibold">
-          {links.map((link, i) => (
-            <li key={i}>
+        <ul className="hidden md:flex space-x-8">
+          {navLinks.map((link) => (
+            <li key={link.name}>
               <a
                 href={link.href}
-                className="hover:text-green-600 transition-colors"
+                className="text-gray-900 font-medium hover:text-green-600 transition"
               >
                 {link.name}
               </a>
@@ -34,29 +36,31 @@ function Navbar() {
           ))}
         </ul>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Hamburger */}
         <div className="md:hidden">
-          <button onClick={() => setOpen(!open)}>
-            {open ? <X className="w-6 h-6 text-gray-900" /> : <Menu className="w-6 h-6 text-gray-900" />}
+          <button onClick={toggleMenu} className="focus:outline-none">
+            {isOpen ? <X className="w-6 h-6 text-gray-900" /> : <Menu className="w-6 h-6 text-gray-900" />}
           </button>
         </div>
       </div>
 
       {/* Mobile Menu */}
-      {open && (
-        <ul className="md:hidden bg-white shadow-lg flex flex-col space-y-4 px-6 py-4">
-          {links.map((link, i) => (
-            <li key={i}>
-              <a
-                href={link.href}
-                className="block text-gray-900 font-semibold py-2 hover:text-green-600 transition-colors"
-                onClick={() => setOpen(false)}
-              >
-                {link.name}
-              </a>
-            </li>
-          ))}
-        </ul>
+      {isOpen && (
+        <div className="md:hidden bg-white shadow-md">
+          <ul className="flex flex-col space-y-4 py-4 px-6">
+            {navLinks.map((link) => (
+              <li key={link.name}>
+                <a
+                  href={link.href}
+                  onClick={() => setIsOpen(false)}
+                  className="block text-gray-900 font-medium hover:text-green-600 transition"
+                >
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       )}
     </nav>
   );
