@@ -10,7 +10,7 @@ function Hero() {
       style={{
         backgroundImage: `url(${banner})`,
         backgroundSize: "cover",
-        backgroundPosition: "center",
+        backgroundPosition: "center center",
         backgroundRepeat: "no-repeat",
       }}
     >
@@ -43,7 +43,7 @@ function Hero() {
         </p>
       </motion.div>
 
-      {/* Optional: ensure banner fills on smaller screens without cropping */}
+      {/* Gradient overlay for smooth visibility */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/40"></div>
     </section>
   );
