@@ -32,22 +32,34 @@ function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-white/90 shadow-md h-14" : "bg-white h-16"
+        scrolled ? "bg-white/90 shadow-md h-12" : "bg-white h-16"
       } backdrop-blur-sm`}
     >
-      <div className="max-w-6xl mx-auto px-6 md:px-16 flex justify-between items-center h-full">
+      <div
+        className={`max-w-6xl mx-auto flex justify-between items-center transition-all duration-300 ${
+          scrolled ? "px-4 md:px-8" : "px-6 md:px-16"
+        } h-full`}
+      >
         {/* Brand */}
-        <div className={`text-2xl font-bold text-green-600 transition-all duration-300 ${scrolled ? "text-lg" : "text-2xl"}`}>
+        <div
+          className={`text-green-600 font-bold transition-all duration-300 ${
+            scrolled ? "text-lg" : "text-2xl"
+          }`}
+        >
           Solomough
         </div>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex space-x-8">
+        <ul
+          className={`hidden md:flex space-x-8 text-gray-900 transition-all duration-300 ${
+            scrolled ? "text-sm" : "text-base"
+          }`}
+        >
           {navLinks.map((link) => (
             <li key={link.name}>
               <a
                 href={link.href}
-                className="text-gray-900 font-medium hover:text-green-600 transition"
+                className="font-medium hover:text-green-600 transition"
               >
                 {link.name}
               </a>
@@ -56,7 +68,7 @@ function Navbar() {
         </ul>
 
         {/* Mobile Hamburger */}
-        <div className="md:hidden">
+        <div className={`md:hidden transition-all duration-300 ${scrolled ? "scale-90" : "scale-100"}`}>
           <button onClick={toggleMenu} className="focus:outline-none">
             {isOpen ? (
               <X className="w-6 h-6 text-gray-900" />
