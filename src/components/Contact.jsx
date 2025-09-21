@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   Mail,
@@ -10,11 +10,20 @@ import {
   XCircle,
   Loader2,
   Copy,
+  Eye,
 } from "lucide-react";
 
 function Contact() {
   const [status, setStatus] = useState("idle"); // idle | loading | success | error
   const [copySuccess, setCopySuccess] = useState(false);
+  const [visitors, setVisitors] = useState(0);
+
+  useEffect(() => {
+    fetch("https://api.countapi.xyz/hit/solomough-portfolio/visits")
+      .then((res) => res.json())
+      .then((data) => setVisitors(data.value))
+      .catch((err) => console.error("CountAPI error:", err));
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -41,16 +50,15 @@ function Contact() {
     }
   };
 
-  // Copy email to clipboard
   const handleCopyEmail = () => {
     navigator.clipboard.writeText("zahemenmoughkaa@gmail.com");
     setCopySuccess(true);
-    setTimeout(() => setCopySuccess(false), 2000); // reset message
+    setTimeout(() => setCopySuccess(false), 2000);
   };
 
   return (
     <section id="contact" className="py-20 bg-white px-6 md:px-16">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         {/* Heading */}
         <motion.h2
           className="text-3xl md:text-5xl font-bold text-gray-900 text-center"
@@ -69,7 +77,7 @@ function Contact() {
           Whether it’s tech, ministry, or collaboration — let’s connect.
         </motion.p>
 
-        <div className="mt-12 grid md:grid-cols-2 gap-12">
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* Contact Info */}
           <div className="space-y-6 text-gray-700">
             <div className="flex items-start justify-between">
@@ -115,13 +123,12 @@ function Contact() {
             </a>
 
             {/* Google Map Embed */}
-            <div className="mt-6 rounded-xl overflow-hidden shadow-md border border-gray-200">
+            <div className="mt-6 rounded-xl overflow-hidden shadow-md border border-gray-200 h-80 md:h-full">
               <iframe
                 title="Google Map - Dutse, Jigawa"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3910.913035661476!2d9.339064314803495!3d11.75972779166712!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x11a21f4d9c0f0f7b%3A0x43c2d08af0cbbccb!2sDutse%2C%20Jigawa!5e0!3m2!1sen!2sng!4v1726901111111!5m2!1sen!2sng"
-                width="100%"
-                height="200"
-                allowFullScreen=""
+                className="w-full h-full"
+                allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               ></iframe>
@@ -135,6 +142,12 @@ function Contact() {
                   📍 View on Google Maps
                 </a>
               </div>
+            </div>
+
+            {/* Visitor Counter */}
+            <div className="flex items-center mt-4 text-gray-500 space-x-2 text-sm">
+              <Eye className="w-5 h-5 text-green-500" />
+              <span>Visitors: {visitors.toLocaleString()}</span>
             </div>
           </div>
 
@@ -171,7 +184,6 @@ function Contact() {
               ></textarea>
             </div>
 
-            {/* Button with spinner */}
             <button
               type="submit"
               disabled={status === "loading"}
@@ -189,7 +201,6 @@ function Contact() {
               )}
             </button>
 
-            {/* Success/Error Messages */}
             {status === "success" && (
               <p className="mt-4 flex items-center text-green-600 font-semibold">
                 <CheckCircle className="w-5 h-5 mr-2" />
