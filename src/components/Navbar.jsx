@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -12,23 +13,41 @@ function Navbar() {
     { name: "Skills", href: "#skills" },
     { name: "Projects", href: "#projects" },
     { name: "Services", href: "#services" },
-    { name: "Faith Books", href: "#faithbooks" },
+    { name: "Books", href: "#faithbooks" },
     { name: "Contact", href: "#contact" },
   ];
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <nav className="fixed top-0 left-0 w-full bg-white shadow-md z-50">
-      <div className="max-w-6xl mx-auto px-6 md:px-16 flex justify-between items-center h-16">
+    <nav
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        scrolled ? "bg-white/90 shadow-md h-14" : "bg-white h-16"
+      } backdrop-blur-sm`}
+    >
+      <div className="max-w-6xl mx-auto px-6 md:px-16 flex justify-between items-center h-full">
         {/* Brand */}
-        <div className="text-2xl font-bold text-green-600">Solomough</div>
+        <div className={`text-2xl font-bold text-green-600 transition-all duration-300 ${scrolled ? "text-lg" : "text-2xl"}`}>
+          Solomough
+        </div>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex space-x-8 font-medium text-gray-900">
+        <ul className="hidden md:flex space-x-8">
           {navLinks.map((link) => (
             <li key={link.name}>
               <a
                 href={link.href}
-                className="hover:text-green-600 transition-colors"
+                className="text-gray-900 font-medium hover:text-green-600 transition"
               >
                 {link.name}
               </a>
@@ -39,7 +58,11 @@ function Navbar() {
         {/* Mobile Hamburger */}
         <div className="md:hidden">
           <button onClick={toggleMenu} className="focus:outline-none">
-            {isOpen ? <X className="w-6 h-6 text-green-600" /> : <Menu className="w-6 h-6 text-green-600" />}
+            {isOpen ? (
+              <X className="w-6 h-6 text-gray-900" />
+            ) : (
+              <Menu className="w-6 h-6 text-gray-900" />
+            )}
           </button>
         </div>
       </div>
@@ -53,7 +76,7 @@ function Navbar() {
                 <a
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="block font-medium text-gray-900 hover:text-green-600 transition-colors"
+                  className="block text-gray-900 font-medium hover:text-green-600 transition"
                 >
                   {link.name}
                 </a>
