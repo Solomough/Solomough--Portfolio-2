@@ -123,7 +123,7 @@ function Contact() {
             </a>
 
             {/* Google Map Embed */}
-            <div className="mt-6 rounded-xl overflow-hidden shadow-md border border-gray-200 h-80 md:h-full">
+            <div className="mt-6 rounded-xl overflow-hidden shadow-md border border-gray-200 h-64 md:h-96 lg:h-[500px]">
               <iframe
                 title="Google Map - Dutse, Jigawa"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3910.913035661476!2d9.339064314803495!3d11.75972779166712!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x11a21f4d9c0f0f7b%3A0x43c2d08af0cbbccb!2sDutse%2C%20Jigawa!5e0!3m2!1sen!2sng!4v1726901111111!5m2!1sen!2sng"
@@ -180,7 +180,7 @@ function Contact() {
                 name="message"
                 rows="4"
                 required
-                className="w-full mt-2 px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-600"
+                className="w-full mt-2 px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-600 resize-none"
               ></textarea>
             </div>
 
