@@ -11,12 +11,14 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div className="font-sans bg-white text-gray-900">
+    <div className="font-sans bg-white text-gray-900 scroll-smooth">
       {/* Navbar */}
       <Navbar />
 
       {/* Hero Section with Banner + DP + Intro */}
-      <Hero />
+      <section id="hero" className="relative h-screen flex items-center justify-center text-center overflow-hidden pt-16">
+        <Hero />
+      </section>
 
       {/* About Me Section */}
       <section id="about" className="py-20 px-6 md:px-16 bg-gray-50">
