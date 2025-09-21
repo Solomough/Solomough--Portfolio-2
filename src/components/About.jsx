@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import Skills from "./components/Skills";
 import { Lightbulb, Target, Globe } from "lucide-react";
 
 function About() {
