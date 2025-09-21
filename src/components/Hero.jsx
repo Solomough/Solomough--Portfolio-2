@@ -6,14 +6,7 @@ function Hero() {
     <section className="min-h-screen flex flex-col md:flex-row items-center justify-center px-6 md:px-16 bg-gradient-to-br from-green-50 to-white">
       
       {/* Profile Picture Placeholder */}
-      <motion.img
-        src="/profile.jpg" 
-        alt="Solomough"
-        className="w-40 h-40 md:w-56 md:h-56 rounded-full shadow-lg object-cover border-4 border-green-600 mb-6 md:mb-0"
-        initial={{ scale: 0.8, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 1 }}
-      />
+      <img src="./assets/images/dp.jpg" alt="Solomough DP" className="w-32 h-32 rounded-full mx-auto border-4 border-gradient-to-r from-purple-500 via-pink-500 to-yellow-500 hover:scale-105 transition-transform duration-500" />
 
       {/* Intro Text */}
       <div className="text-center md:text-left md:ml-10">
