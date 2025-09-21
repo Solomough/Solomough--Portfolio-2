@@ -1,4 +1,3 @@
-
 import React from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -12,14 +11,14 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div className="font-sans bg-white text-gray-900 scroll-smooth overflow-x-hidden">
+    <div className="font-sans text-gray-900 scroll-smooth overflow-x-hidden">
       {/* Navbar */}
       <Navbar />
 
       {/* Hero Section with Banner + DP + Intro */}
       <section
         id="hero"
-        className="relative w-full h-screen flex items-center justify-center text-center overflow-hidden pt-16"
+        className="relative w-full h-screen flex items-center justify-center text-center overflow-hidden pt-16 bg-gradient-to-br from-sky-300 via-sky-400 to-sky-500"
       >
         <Hero />
       </section>
@@ -27,7 +26,7 @@ function App() {
       {/* About Me Section */}
       <section
         id="about"
-        className="py-20 px-4 sm:px-6 md:px-16 bg-gray-50 w-full max-w-full"
+        className="py-20 px-6 md:px-16 w-full max-w-full bg-gradient-to-r from-sky-200 via-sky-300 to-sky-400"
       >
         <About />
       </section>
@@ -35,7 +34,7 @@ function App() {
       {/* Skills Section */}
       <section
         id="skills"
-        className="py-20 px-4 sm:px-6 md:px-16 bg-white w-full max-w-full"
+        className="py-20 px-6 md:px-16 w-full max-w-full bg-gradient-to-r from-cyan-200 via-sky-300 to-sky-400"
       >
         <Skills />
       </section>
@@ -43,7 +42,7 @@ function App() {
       {/* Projects Section */}
       <section
         id="projects"
-        className="py-20 px-4 sm:px-6 md:px-16 bg-gray-50 w-full max-w-full"
+        className="py-20 px-6 md:px-16 w-full max-w-full bg-gradient-to-r from-sky-100 via-sky-200 to-sky-300"
       >
         <Projects />
       </section>
@@ -51,7 +50,7 @@ function App() {
       {/* Services Section */}
       <section
         id="services"
-        className="py-20 px-4 sm:px-6 md:px-16 bg-white w-full max-w-full"
+        className="py-20 px-6 md:px-16 w-full max-w-full bg-gradient-to-r from-cyan-100 via-sky-200 to-sky-300"
       >
         <Services />
       </section>
@@ -59,7 +58,7 @@ function App() {
       {/* Faith Books Section */}
       <section
         id="faithbooks"
-        className="py-20 px-4 sm:px-6 md:px-16 bg-gray-50 w-full max-w-full"
+        className="py-20 px-6 md:px-16 w-full max-w-full bg-gradient-to-r from-sky-200 via-sky-300 to-sky-400"
       >
         <FaithBooks />
       </section>
@@ -67,7 +66,7 @@ function App() {
       {/* Contact Section */}
       <section
         id="contact"
-        className="py-20 px-4 sm:px-6 md:px-16 bg-white w-full max-w-full"
+        className="py-20 px-6 md:px-16 w-full max-w-full bg-gradient-to-r from-cyan-200 via-sky-300 to-sky-400"
       >
         <Contact />
       </section>
