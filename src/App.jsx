@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -14,7 +14,7 @@ function App() {
   return (
     <Router>
       <div className="font-sans text-gray-900 scroll-smooth overflow-x-hidden bg-gradient-to-b from-blue-900 via-blue-800 to-blue-950 min-h-screen flex flex-col">
-        {/* Navbar (visible everywhere) */}
+        {/* Navbar (always visible) */}
         <Navbar />
 
         {/* Page Routes */}
@@ -82,7 +82,7 @@ function App() {
           </Routes>
         </div>
 
-        {/* Footer (visible everywhere) */}
+        {/* Footer (always visible) */}
         <Footer />
       </div>
     </Router>
