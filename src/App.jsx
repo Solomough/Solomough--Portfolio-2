@@ -1,8 +1,6 @@
 import React from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
-import { motion } from "framer-motion";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Skills from "./components/Skills";
@@ -10,38 +8,47 @@ import Projects from "./components/Projects";
 import Services from "./components/Services";
 import FaithBooks from "./components/FaithBooks";
 import Contact from "./components/Contact";
-
-function PageWrapper({ children }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, x: 50 }}
-      animate={{ opacity: 1, x: 0 }}
-      exit={{ opacity: 0, x: -50 }}
-      transition={{ duration: 0.6 }}
-      className="min-h-screen"
-    >
-      {children}
-    </motion.div>
-  );
-}
+import Footer from "./components/Footer";
 
 function App() {
-  const location = useLocation();
-
   return (
-    <div className="font-sans text-gray-900 scroll-smooth overflow-x-hidden bg-gradient-to-b from-blue-900 via-blue-800 to-blue-950">
-      <Navbar />
-      <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<PageWrapper><Hero /></PageWrapper>} />
-        <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
-        <Route path="/skills" element={<PageWrapper><Skills /></PageWrapper>} />
-        <Route path="/projects" element={<PageWrapper><Projects /></PageWrapper>} />
-        <Route path="/services" element={<PageWrapper><Services /></PageWrapper>} />
-        <Route path="/faithbooks" element={<PageWrapper><FaithBooks /></PageWrapper>} />
-        <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
-      </Routes>
-      <Footer />
-    </div>
+    <Router>
+      <div className="font-sans text-gray-900 scroll-smooth overflow-x-hidden bg-gradient-to-b from-blue-900 via-blue-800 to-blue-950 min-h-screen flex flex-col">
+        {/* Navbar stays fixed */}
+        <Navbar />
+
+        {/* Page Content */}
+        <main className="flex-grow pt-20 px-6 md:px-16">
+          <Routes>
+            {/* Home Page (Hero + Inspiring Quote) */}
+            <Route
+              path="/"
+              element={
+                <section className="w-full h-screen flex flex-col items-center justify-center text-center">
+                  <Hero />
+                  <p className="mt-6 text-lg md:text-xl text-gray-200 italic max-w-2xl">
+                    “We merge <span className="font-semibold text-green-400">Faith</span> 
+                    and <span className="font-semibold text-green-400">Technology</span> 
+                    to help you inspire, innovate, and impact the world.”
+                  </p>
+                </section>
+              }
+            />
+
+            {/* Other Pages */}
+            <Route path="/about" element={<About />} />
+            <Route path="/skills" element={<Skills />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/faithbooks" element={<FaithBooks />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </main>
+
+        {/* Footer always visible */}
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
