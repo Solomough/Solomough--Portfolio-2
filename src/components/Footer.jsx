@@ -5,10 +5,14 @@ function Footer() {
   const [visitorCount, setVisitorCount] = useState(0);
 
   useEffect(() => {
-    // CountAPI: Replace with your own namespace and key if needed
+    // Fetch visitor count from CountAPI
     fetch("https://api.countapi.xyz/hit/solomough-portfolio/visits")
       .then((res) => res.json())
-      .then((data) => setVisitorCount(data.value))
+      .then((data) => {
+        if (data && data.value !== undefined) {
+          setVisitorCount(data.value);
+        }
+      })
       .catch((err) => console.error("CountAPI Error:", err));
   }, []);
 
