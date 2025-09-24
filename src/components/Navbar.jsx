@@ -4,17 +4,17 @@ import { NavLink } from "react-router-dom";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-
   const toggleMenu = () => setIsOpen(!isOpen);
 
+  // HashRouter compatible links
   const navLinks = [
-    { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
-    { name: "Skills", path: "/skills" },
-    { name: "Projects", path: "/projects" },
-    { name: "Services", path: "/services" },
-    { name: "Books & Writings", path: "/booksandwritings" },
-    { name: "Contact", path: "/contact" },
+    { name: "Home", path: "#/" },
+    { name: "About", path: "#/about" },
+    { name: "Skills", path: "#/skills" },
+    { name: "Projects", path: "#/projects" },
+    { name: "Services", path: "#/services" },
+    { name: "Books & Writings", path: "#/booksandwritings" },
+    { name: "Contact", path: "#/contact" },
   ];
 
   return (
@@ -22,7 +22,7 @@ function Navbar() {
       <div className="max-w-7xl mx-auto px-6 md:px-16 py-4 flex justify-between items-center">
         {/* Brand */}
         <NavLink
-          to="/"
+          to="#/"
           className="text-2xl font-extrabold tracking-wide text-green-400 hover:text-green-500 transition-colors"
         >
           Solomough<span className="text-white">.</span>
