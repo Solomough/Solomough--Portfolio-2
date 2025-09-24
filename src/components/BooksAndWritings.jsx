@@ -52,7 +52,7 @@ function BooksAndWritings() {
   ];
 
   return (
-    <section id="books" className="py-20 px-6 md:px-16 bg-gray-50">
+    <section id="books-writings" className="py-20 px-6 md:px-16 bg-gray-50">
       <div className="max-w-6xl mx-auto text-center">
         {/* Title */}
         <motion.h2
@@ -61,7 +61,7 @@ function BooksAndWritings() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
-          Faith & <span className="text-green-600">Books</span>
+          Books & <span className="text-green-600">Writings</span>
         </motion.h2>
 
         {/* Subtitle */}
