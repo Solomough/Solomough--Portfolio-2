@@ -1,150 +1,100 @@
 import React from "react";
 import { motion } from "framer-motion";
-import {
-  Code2,
-  Database,
-  Cpu,
-  Lightbulb,
-  Cross,
-  Globe,
-  Users,
-  BookOpen,
-  Brush,
-  Camera,
-} from "lucide-react";
-
-const skills = [
-  {
-    category: "Tech Skills",
-    items: [
-      { name: "React.js", level: 90, icon: <Code2 className="w-6 h-6" /> },
-      { name: "Full-Stack Development", level: 75, icon: <Database className="w-6 h-6" /> },
-      { name: "Tailwind CSS", level: 85, icon: <Brush className="w-6 h-6" /> },
-      { name: "AI & Web3", level: 65, icon: <Cpu className="w-6 h-6" /> },
-      { name: "GitHub / Deployment", level: 80, icon: <Globe className="w-6 h-6" /> },
-    ],
-  },
-  {
-    category: "Creative Skills",
-    items: [
-      { name: "Photography", level: 95, icon: <Camera className="w-6 h-6" /> },
-      { name: "Photo Editing", level: 88, icon: <Brush className="w-6 h-6" /> },
-      { name: "Problem Solving", level: 95, icon: <Lightbulb className="w-6 h-6" /> },
-    ],
-  },
-  {
-    category: "Leadership & Ministry",
-    items: [
-      { name: "Faith + Tech Integration", level: 98, icon: <Cross className="w-6 h-6" /> },
-      { name: "Mentorship & Teaching", level: 92, icon: <Users className="w-6 h-6" /> },
-      { name: "Spiritual Writing", level: 90, icon: <BookOpen className="w-6 h-6" /> },
-    ],
-  },
-];
-
-function SkillCircle({ skill }) {
-  const radius = 40;
-  const stroke = 6;
-  const normalizedRadius = radius - stroke * 2;
-  const circumference = normalizedRadius * 2 * Math.PI;
-
-  return (
-    <motion.div
-      className="flex flex-col items-center space-y-2 cursor-pointer"
-      whileHover={{ scale: 1.1 }}
-      transition={{ type: "spring", stiffness: 200 }}
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
-    >
-      <div className="relative w-24 h-24">
-        <svg height={radius * 2} width={radius * 2}>
-          <defs>
-            <linearGradient id={`gradient-${skill.name}`} x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#10B981" />
-              <stop offset="100%" stopColor="#34D399" />
-            </linearGradient>
-          </defs>
-          <circle
-            stroke="#e5e7eb"
-            fill="transparent"
-            strokeWidth={stroke}
-            r={normalizedRadius}
-            cx={radius}
-            cy={radius}
-          />
-          <motion.circle
-            stroke={`url(#gradient-${skill.name})`}
-            fill="transparent"
-            strokeWidth={stroke}
-            r={normalizedRadius}
-            cx={radius}
-            cy={radius}
-            strokeDasharray={circumference}
-            strokeDashoffset={circumference}
-            strokeLinecap="round"
-            initial={{ strokeDashoffset: circumference }}
-            whileInView={{ strokeDashoffset: circumference - (skill.level / 100) * circumference }}
-            transition={{ duration: 1.5, ease: "easeInOut" }}
-            viewport={{ once: true, amount: 0.3 }}
-          />
-        </svg>
-        <div className="absolute inset-0 flex items-center justify-center text-sm font-bold text-gray-900">
-          {skill.level}%
-        </div>
-      </div>
-      <div className="flex items-center space-x-1">
-        <span className="text-green-600">{skill.icon}</span>
-        <span className="font-semibold text-gray-800">{skill.name}</span>
-      </div>
-    </motion.div>
-  );
-}
+import banner from "../assets/images/banner.jpg";
 
 function Skills() {
-  return (
-    <section id="skills" className="py-20 bg-gray-50 px-6 md:px-16">
-      <div className="max-w-6xl mx-auto text-center">
-        <motion.h2
-          className="text-3xl md:text-5xl font-bold text-gray-900 mb-4"
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          My <span className="text-green-600">Skills & Expertise</span>
-        </motion.h2>
-        <motion.p
-          className="text-lg text-gray-700 mb-12"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          viewport={{ once: true }}
-        >
-          Blending <span className="font-semibold">technology</span>,{" "}
-          <span className="font-semibold">creativity</span>, and{" "}
-          <span className="font-semibold">faith-driven leadership</span> to build with excellence.
-        </motion.p>
+  const skills = [
+    {
+      title: "Full Stack Development",
+      desc: "Building modern, scalable applications using the MERN stack and the latest technologies.",
+      tools: ["React", "Node.js", "Express", "MongoDB", "Next.js", "TailwindCSS"],
+    },
+    {
+      title: "Web3 & Blockchain",
+      desc: "Exploring decentralized applications, smart contracts, and the future of the internet.",
+      tools: ["Solidity", "Ethereum", "Hardhat", "Metamask", "IPFS"],
+    },
+    {
+      title: "AI & Automation",
+      desc: "Leveraging artificial intelligence to create smarter, more adaptive solutions.",
+      tools: ["Python", "TensorFlow", "LangChain", "OpenAI APIs"],
+    },
+    {
+      title: "Photography & Visual Storytelling",
+      desc: "Transforming ideas into powerful visuals through photography and editing, enhancing creativity in design and development.",
+      tools: ["DSLR Shooting", "Lightroom", "Photoshop", "Canva", "Creative Direction"],
+    },
+    {
+      title: "Faith + Innovation",
+      desc: "A unique mindset that blends faith with technology — proving that vision, speed, and excellence can break limits.",
+      tools: ["Resilience", "Speed-learning", "Creativity", "Christ-centered mindset"],
+    },
+  ];
 
-        {/* Skills Grid */}
-        <div className="grid md:grid-cols-3 gap-12 justify-items-center">
-          {skills.map((group, idx) => (
+  return (
+    <section
+      id="skills"
+      className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 py-20"
+    >
+      {/* Background */}
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: `url(${banner})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      ></div>
+      <div className="absolute inset-0 bg-black bg-opacity-70"></div>
+
+      {/* Content */}
+      <div className="relative z-10 max-w-6xl mx-auto">
+        <motion.h1
+          className="text-4xl md:text-6xl font-extrabold text-green-400 mb-12 drop-shadow-lg"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
+          My Skills & Vision
+        </motion.h1>
+
+        {/* Skill Cards */}
+        <div className="grid md:grid-cols-2 gap-8">
+          {skills.map((skill, i) => (
             <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: idx * 0.3 }}
-              viewport={{ once: true }}
+              key={i}
+              className="bg-black bg-opacity-50 backdrop-blur-lg rounded-2xl shadow-lg p-8 text-left text-gray-200 hover:shadow-green-500/20 transition"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: i * 0.3 }}
             >
-              <h3 className="text-xl font-bold text-gray-900 mb-4">{group.category}</h3>
-              <div className="grid grid-cols-2 gap-6">
-                {group.items.map((skill, i) => (
-                  <SkillCircle key={i} skill={skill} />
+              <h2 className="text-2xl font-bold text-green-300 mb-4">{skill.title}</h2>
+              <p className="mb-4 text-gray-300">{skill.desc}</p>
+              <div className="flex flex-wrap gap-2">
+                {skill.tools.map((tool, j) => (
+                  <span
+                    key={j}
+                    className="px-3 py-1 bg-green-600 bg-opacity-30 text-green-200 rounded-full text-sm"
+                  >
+                    {tool}
+                  </span>
                 ))}
               </div>
             </motion.div>
           ))}
         </div>
+
+        {/* Closing Statement */}
+        <motion.p
+          className="mt-12 text-lg md:text-xl text-gray-300 italic max-w-3xl mx-auto leading-relaxed"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 2 }}
+        >
+          “I am not just learning — I am building while learning. With Christ, 
+          I break time codes to grow with exceptional speed, bringing solutions 
+          that inspire and transform.”
+        </motion.p>
       </div>
     </section>
   );
