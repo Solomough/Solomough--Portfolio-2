@@ -49,16 +49,53 @@ solomough-portfolio/ │ ├─ src/ │  ├─ assets/          # Images, bann
 
 ---
 
+---
+
+## 🌐 Deployment
+
+The project is deployed on **GitHub Pages**:
+
+[View Live Portfolio](https://Solomough.github.io/solomough-portfolio)
+
+---
+
 ## 📬 Contact
 
 Get in touch with **Solomon Moughkaa Zahemen** through the following channels:
 
-- **Email:** [solomough@example.com](mailto:zahemenmoughkaa@gmail.com)  
-- **GitHub:** [https://github.com/Solomough](https://github.com/Solomough)  
-- **LinkedIn:** [https://www.linkedin.com/in/solomon-moughkaa-zahemen-a5476a377/](https://www.linkedin.com/in/solomon-moughkaa-zahemen-a5476a377/)  
-- **Twitter/X:** [https://x.com/moughkaa46415?s=09](https://x.com/moughkaa46415?s=09)  
-- **Facebook:** [https://www.facebook.com/share/1CHDBS3HAA/](https://www.facebook.com/share/1CHDBS3HAA/)  
-- **Instagram:** [https://www.instagram.com/solomough3](https://www.instagram.com/solomough3)  
-- **YouTube:** [https://www.youtube.com/@solomough](https://www.youtube.com/@solomough)
+- **Email:** [solomough](mailto:zahemenmoughkaa@egmail.com)  
+- **GitHub:** [Solomough](https://github.com/Solomough)  
+- **LinkedIn:** [Solomough](https://www.linkedin.com/in/solomon-moughkaa-zahemen-a5476a377/)  
+- **Twitter/X:** [Solomough](https://x.com/moughkaa46415?s=09)  
+- **Facebook:** [Solomough](https://www.facebook.com/share/1CHDBS3HAA/)  
+- **Instagram:** [Solomoug3](https://www.instagram.com/solomough3)  
+- **YouTube:** [solomough](https://www.youtube.com/@solomough)
 
 Feel free to reach out for collaborations, inquiries, or just to connect!
+
+---
+
+## ⭐ Contribution
+
+This project is **personal** and represents my professional journey. Contributions are welcome via forks and pull requests.
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License**. See [LICENSE](LICENSE) for details.
+
+---
+
+## 🙏 Acknowledgements
+
+- [React](https://reactjs.org/)  
+- [Vite](https://vitejs.dev/)  
+- [TailwindCSS](https://tailwindcss.com/)  
+- [Framer Motion](https://www.framer.com/motion/)  
+- [Lucide Icons](https://lucide.dev/)  
+
+---
+
+Made with ❤️ and 💡 by **Solomon Moughkaa Zahemen**
+
