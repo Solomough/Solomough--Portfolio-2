@@ -1,83 +1,83 @@
 import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
+  const navLinks = [
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+    { name: "Skills", path: "/skills" },
+    { name: "Projects", path: "/projects" },
+    { name: "Services", path: "/services" },
+    { name: "Faith Books", path: "/faithbooks" },
+    { name: "Contact", path: "/contact" },
+  ];
+
   return (
-    <nav className="fixed top-0 left-0 w-full bg-gray-900 text-white shadow-lg z-50">
+    <nav className="fixed top-0 left-0 w-full bg-gray-900/95 backdrop-blur-md text-white shadow-lg z-50">
       <div className="max-w-7xl mx-auto px-6 md:px-16 py-4 flex justify-between items-center">
         {/* Brand */}
-        <Link
+        <NavLink
           to="/"
-          className="text-2xl font-bold text-green-400 hover:text-green-500"
+          className="text-2xl font-extrabold tracking-wide text-green-400 hover:text-green-500 transition-colors"
         >
-          Solomough
-        </Link>
+          Solomough<span className="text-white">.</span>
+        </NavLink>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-8 font-medium">
-          <Link to="/" className="hover:text-green-400">
-            Home
-          </Link>
-          <Link to="/about" className="hover:text-green-400">
-            About
-          </Link>
-          <Link to="/skills" className="hover:text-green-400">
-            Skills
-          </Link>
-          <Link to="/projects" className="hover:text-green-400">
-            Projects
-          </Link>
-          <Link to="/services" className="hover:text-green-400">
-            Services
-          </Link>
-          <Link to="/faithbooks" className="hover:text-green-400">
-            Faith Books
-          </Link>
-          <Link to="/contact" className="hover:text-green-400">
-            Contact
-          </Link>
+          {navLinks.map((link) => (
+            <NavLink
+              key={link.name}
+              to={link.path}
+              className={({ isActive }) =>
+                `hover:text-green-400 transition-colors ${
+                  isActive ? "text-green-400 border-b-2 border-green-400" : ""
+                }`
+              }
+            >
+              {link.name}
+            </NavLink>
+          ))}
         </div>
 
         {/* Mobile Hamburger */}
         <button
           onClick={toggleMenu}
-          className="md:hidden text-gray-200 hover:text-green-400"
+          className="md:hidden text-gray-200 hover:text-green-400 transition-colors"
+          aria-label="Toggle Menu"
         >
           {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
 
       {/* Mobile Menu */}
-      {isOpen && (
-        <div className="md:hidden bg-gray-800 px-6 py-4 space-y-4">
-          <Link to="/" onClick={toggleMenu} className="block hover:text-green-400">
-            Home
-          </Link>
-          <Link to="/about" onClick={toggleMenu} className="block hover:text-green-400">
-            About
-          </Link>
-          <Link to="/skills" onClick={toggleMenu} className="block hover:text-green-400">
-            Skills
-          </Link>
-          <Link to="/projects" onClick={toggleMenu} className="block hover:text-green-400">
-            Projects
-          </Link>
-          <Link to="/services" onClick={toggleMenu} className="block hover:text-green-400">
-            Services
-          </Link>
-          <Link to="/faithbooks" onClick={toggleMenu} className="block hover:text-green-400">
-            Faith Books
-          </Link>
-          <Link to="/contact" onClick={toggleMenu} className="block hover:text-green-400">
-            Contact
-          </Link>
+      <div
+        className={`md:hidden bg-gray-800 overflow-hidden transition-all duration-300 ${
+          isOpen ? "max-h-96 py-4" : "max-h-0 py-0"
+        }`}
+      >
+        <div className="px-6 space-y-4">
+          {navLinks.map((link) => (
+            <NavLink
+              key={link.name}
+              to={link.path}
+              onClick={toggleMenu}
+              className={({ isActive }) =>
+                `block hover:text-green-400 transition-colors ${
+                  isActive ? "text-green-400 font-semibold" : ""
+                }`
+              }
+            >
+              {link.name}
+            </NavLink>
+          ))}
         </div>
-      )}
+      </div>
     </nav>
   );
 }
