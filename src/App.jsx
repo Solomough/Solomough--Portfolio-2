@@ -1,5 +1,5 @@
 import React from "react";
-import { HashRouter as Router, Routes, Route } from "react-router-dom"; // ✅ Use HashRouter
+import { HashRouter as Router, Routes, Route } from "react-router-dom"; // ✅ HashRouter for GitHub Pages
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
@@ -22,7 +22,10 @@ function App() {
         {/* Page Content */}
         <main className="flex-grow pt-20 px-6 md:px-16">
           <Routes>
+            {/* Home page with Hero merged */}
             <Route path="/" element={<Home />} />
+
+            {/* Other pages */}
             <Route path="/about" element={<About />} />
             <Route path="/skills" element={<Skills />} />
             <Route path="/projects" element={<Projects />} />
