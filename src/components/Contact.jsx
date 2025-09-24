@@ -12,6 +12,7 @@ import {
   Copy,
   Eye,
 } from "lucide-react";
+import banner from "../assets/images/banner.jpg";
 
 function Contact() {
   const [status, setStatus] = useState("idle"); // idle | loading | success | error
@@ -57,32 +58,54 @@ function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-white px-6 md:px-16">
-      <div className="max-w-6xl mx-auto">
+    <section
+      id="contact"
+      className="relative py-20 px-6 md:px-16 text-white"
+      style={{
+        backgroundImage: `url(${banner})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+
+      <div className="relative max-w-6xl mx-auto z-10">
         {/* Heading */}
         <motion.h2
-          className="text-3xl md:text-5xl font-bold text-gray-900 text-center"
+          className="text-3xl md:text-5xl font-bold text-center text-green-400 drop-shadow-lg"
           initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
         >
-          Get in <span className="text-green-600">Touch</span>
+          Let’s Build Something <span className="text-white">Exceptional</span>
         </motion.h2>
         <motion.p
-          className="mt-4 text-lg text-gray-700 text-center"
+          className="mt-4 text-lg text-gray-200 text-center max-w-2xl mx-auto"
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.3 }}
+          viewport={{ once: true }}
         >
-          Whether it’s tech, ministry, or collaboration — let’s connect.
+          Whether it’s <span className="text-green-400 font-semibold">tech</span>,{" "}
+          <span className="text-green-400 font-semibold">ministry</span>, or{" "}
+          <span className="text-green-400 font-semibold">collaboration</span> —
+          let’s connect and create lasting impact.
         </motion.p>
 
         <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* Contact Info */}
-          <div className="space-y-6 text-gray-700">
+          <motion.div
+            className="space-y-6 bg-white/10 backdrop-blur-lg rounded-2xl p-6 shadow-lg border border-white/20"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
             <div className="flex items-start justify-between">
               <div className="flex items-start">
-                <Mail className="w-6 h-6 text-green-600 mr-3" />
+                <Mail className="w-6 h-6 text-green-400 mr-3" />
                 <p>
                   <span className="font-semibold">Email:</span>{" "}
                   zahemenmoughkaa@gmail.com
@@ -90,21 +113,20 @@ function Contact() {
               </div>
               <button
                 onClick={handleCopyEmail}
-                className="ml-3 px-3 py-1 bg-gray-100 hover:bg-gray-200 rounded-lg flex items-center text-sm text-gray-700 transition"
+                className="ml-3 px-3 py-1 bg-green-600/80 hover:bg-green-600 rounded-lg flex items-center text-sm text-white transition"
               >
-                <Copy className="w-4 h-4 mr-1" />
                 {copySuccess ? "Copied!" : "Copy"}
               </button>
             </div>
 
             <div className="flex items-start">
-              <Phone className="w-6 h-6 text-green-600 mr-3" />
+              <Phone className="w-6 h-6 text-green-400 mr-3" />
               <p>
                 <span className="font-semibold">Phone:</span> +234 707 656 0169
               </p>
             </div>
             <div className="flex items-start">
-              <MapPin className="w-6 h-6 text-green-600 mr-3" />
+              <MapPin className="w-6 h-6 text-green-400 mr-3" />
               <p>
                 <span className="font-semibold">Location:</span> Dutse, Jigawa,
                 Nigeria (Open to global collaborations)
@@ -122,65 +144,50 @@ function Contact() {
               Chat on WhatsApp
             </a>
 
-            {/* Google Map Embed */}
-            <div className="mt-6 rounded-xl overflow-hidden shadow-md border border-gray-200 h-64 md:h-96 lg:h-[500px]">
-              <iframe
-                title="Google Map - Dutse, Jigawa"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3910.913035661476!2d9.339064314803495!3d11.75972779166712!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x11a21f4d9c0f0f7b%3A0x43c2d08af0cbbccb!2sDutse%2C%20Jigawa!5e0!3m2!1sen!2sng!4v1726901111111!5m2!1sen!2sng"
-                className="w-full h-full"
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
-              <div className="text-center mt-2">
-                <a
-                  href="https://goo.gl/maps/r3mL8X93YY3c3MvL9"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-green-600 font-semibold hover:underline"
-                >
-                  📍 View on Google Maps
-                </a>
-              </div>
-            </div>
-
             {/* Visitor Counter */}
-            <div className="flex items-center mt-4 text-gray-500 space-x-2 text-sm">
-              <Eye className="w-5 h-5 text-green-500" />
+            <div className="flex items-center mt-6 text-gray-300 space-x-2 text-sm">
+              <Eye className="w-5 h-5 text-green-400" />
               <span>Visitors: {visitors.toLocaleString()}</span>
             </div>
-          </div>
+          </motion.div>
 
           {/* Contact Form */}
-          <form
+          <motion.form
             onSubmit={handleSubmit}
-            className="bg-gray-50 rounded-2xl shadow-md p-8 space-y-6"
+            className="bg-white/10 backdrop-blur-lg rounded-2xl shadow-lg border border-white/20 p-8 space-y-6"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
           >
             <div>
-              <label className="block font-semibold text-gray-900">Name</label>
+              <label className="block font-semibold text-white">Name</label>
               <input
                 type="text"
                 name="name"
                 required
-                className="w-full mt-2 px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-600"
+                className="w-full mt-2 px-4 py-2 rounded-lg bg-white/20 text-white placeholder-gray-300 border border-white/30 focus:outline-none focus:ring-2 focus:ring-green-400"
+                placeholder="Your full name"
               />
             </div>
             <div>
-              <label className="block font-semibold text-gray-900">Email</label>
+              <label className="block font-semibold text-white">Email</label>
               <input
                 type="email"
                 name="email"
                 required
-                className="w-full mt-2 px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-600"
+                className="w-full mt-2 px-4 py-2 rounded-lg bg-white/20 text-white placeholder-gray-300 border border-white/30 focus:outline-none focus:ring-2 focus:ring-green-400"
+                placeholder="your@email.com"
               />
             </div>
             <div>
-              <label className="block font-semibold text-gray-900">Message</label>
+              <label className="block font-semibold text-white">Message</label>
               <textarea
                 name="message"
                 rows="4"
                 required
-                className="w-full mt-2 px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-600 resize-none"
+                className="w-full mt-2 px-4 py-2 rounded-lg bg-white/20 text-white placeholder-gray-300 border border-white/30 focus:outline-none focus:ring-2 focus:ring-green-400 resize-none"
+                placeholder="Write your message..."
               ></textarea>
             </div>
 
@@ -202,18 +209,18 @@ function Contact() {
             </button>
 
             {status === "success" && (
-              <p className="mt-4 flex items-center text-green-600 font-semibold">
+              <p className="mt-4 flex items-center text-green-400 font-semibold">
                 <CheckCircle className="w-5 h-5 mr-2" />
                 Message sent successfully! I’ll get back to you soon.
               </p>
             )}
             {status === "error" && (
-              <p className="mt-4 flex items-center text-red-600 font-semibold">
+              <p className="mt-4 flex items-center text-red-400 font-semibold">
                 <XCircle className="w-5 h-5 mr-2" />
                 Oops! Something went wrong. Please try again.
               </p>
             )}
-          </form>
+          </motion.form>
         </div>
       </div>
     </section>
