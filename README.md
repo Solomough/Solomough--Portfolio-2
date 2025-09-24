@@ -43,3 +43,68 @@ A modern personal portfolio showcasing projects, skills, services, and books & w
 ---
 
 ## 📂 Project Structure
+
+solomough-portfolio/ │ ├─ src/ │  ├─ assets/          # Images, banners, profile pics │  ├─ components/      # Navbar, Footer, Home, About, Skills, Projects, Services, BooksAndWritings, Contact │  ├─ App.jsx │  └─ main.jsx │ ├─ public/ ├─ package.json ├─ tailwind.config.js ├─ vite.config.js └─ README.md
+
+---
+
+## 🚀 Installation & Setup
+
+1. **Clone the repository**
+```bash
+git clone https://github.com/Solomough/solomough-portfolio.git
+
+2. Navigate to the project folder
+
+
+
+cd solomough-portfolio
+
+3. Install dependencies
+
+
+
+npm install
+
+4. Run locally
+
+
+
+npm run dev
+
+
+---
+
+📌 Deployment
+
+This project is deployed on GitHub Pages. To deploy:
+
+npm run build
+npm run deploy
+
+
+---
+
+🤝 Contact
+
+Solomon Moughkaa Zahemen
+
+GitHub: https://github.com/Solomough
+
+LinkedIn: https://www.linkedin.com/in/solomon-moughkaa-zahemen-a5476a377/
+
+X/Twitter: https://x.com/moughkaa46415?s=09
+
+
+
+---
+
+⚡ Notes
+
+This portfolio embodies a fusion of faith and technology, designed to inspire, showcase skills, and attract collaboration. Future updates may include interactive features, blog sections, and new project highlights.
+
+
+---
+
+© Solomough– All rights reserved
+
