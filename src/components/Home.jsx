@@ -27,7 +27,7 @@ function Home() {
         }}
       />
 
-      {/* Overlay for better text readability */}
+      {/* Overlay */}
       <div className="absolute inset-0 bg-black bg-opacity-60"></div>
 
       {/* Content */}
@@ -37,14 +37,12 @@ function Home() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.2 }}
       >
-        {/* Profile */}
         <img
           src={dp}
           alt="Solomough"
           className="w-28 h-28 md:w-40 md:h-40 rounded-full border-4 border-green-500 object-cover shadow-2xl"
         />
 
-        {/* Name & Title */}
         <motion.h1
           className="text-4xl md:text-6xl font-extrabold text-white drop-shadow-lg leading-tight"
           initial={{ opacity: 0 }}
@@ -60,12 +58,11 @@ function Home() {
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.6 }}
         >
-          <span className="font-semibold text-green-400">Visionary Engineer</span> &amp; 
-          <span className="font-semibold text-green-400"> Faith + Technology Strategist</span>
-          — crafting solutions that inspire, empower, and transform lives globally.
+          <span className="font-semibold text-green-400">Visionary Engineer</span> &amp;{" "}
+          <span className="font-semibold text-green-400">Faith + Technology Strategist</span> — 
+          crafting solutions that inspire, empower, and transform lives globally.
         </motion.p>
 
-        {/* Inspiring Quote */}
         <motion.blockquote
           className="italic text-base md:text-xl text-gray-300 max-w-3xl leading-relaxed"
           initial={{ opacity: 0 }}
@@ -75,7 +72,6 @@ function Home() {
           “Your vision deserves more than just code — it deserves purpose, innovation, and global impact.”
         </motion.blockquote>
 
-        {/* Call-to-Action Buttons */}
         <motion.div
           className="flex flex-col md:flex-row gap-4 mt-6"
           initial={{ opacity: 0 }}
@@ -97,7 +93,6 @@ function Home() {
         </motion.div>
       </motion.div>
 
-      {/* Scroll Indicator */}
       <motion.a
         href="#about"
         className="absolute bottom-8 z-20 text-white flex flex-col items-center"
