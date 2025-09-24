@@ -18,11 +18,16 @@ function Hero() {
         }}
         initial={{ scale: 1 }}
         animate={{ scale: 1.1 }}
-        transition={{ duration: 15, ease: "easeOut", repeat: Infinity, repeatType: "reverse" }}
+        transition={{
+          duration: 15,
+          ease: "easeOut",
+          repeat: Infinity,
+          repeatType: "reverse",
+        }}
       ></motion.div>
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+      <div className="absolute inset-0 bg-black bg-opacity-60"></div>
 
       {/* Content */}
       <motion.div
@@ -35,12 +40,12 @@ function Hero() {
         <img
           src={dp}
           alt="Solomough"
-          className="w-32 h-32 md:w-48 md:h-48 rounded-full border-4 border-green-600 object-cover shadow-lg"
+          className="w-28 h-28 md:w-40 md:h-40 rounded-full border-4 border-green-500 object-cover shadow-xl"
         />
 
         {/* Headline */}
         <motion.h1
-          className="text-4xl md:text-6xl font-extrabold text-white drop-shadow-lg"
+          className="text-4xl md:text-6xl font-extrabold text-white drop-shadow-lg leading-tight"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
@@ -48,30 +53,32 @@ function Hero() {
           Solomon Moughkaa Zahemen
         </motion.h1>
 
-        {/* Subtext */}
+        {/* Subtext - Identity & Value */}
         <motion.p
-          className="text-lg md:text-2xl text-gray-200 max-w-xl leading-relaxed"
+          className="text-lg md:text-2xl text-gray-200 max-w-2xl leading-relaxed"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.6 }}
         >
-          Bridging <span className="font-semibold">Faith + Technology</span>{" "}
-          to inspire innovation and impact globally.
+          I am a <span className="font-semibold text-green-400">Visionary Engineer</span> blending
+          <span className="font-semibold"> Faith + Technology</span> to build
+          <span className="font-semibold"> solutions that inspire, transform, and empower</span>.
         </motion.p>
 
-        {/* Inspiring Quote */}
+        {/* Inspiring / Persuasive Quote */}
         <motion.blockquote
-          className="italic text-lg md:text-xl text-gray-300 max-w-2xl leading-relaxed"
+          className="italic text-base md:text-xl text-gray-300 max-w-3xl leading-relaxed"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1 }}
         >
-          “I build solutions that inspire, transform, and empower businesses and
-          lives — because your vision deserves more than just a website.”
+          “Your vision deserves more than just a website — it deserves a digital
+          experience that tells your story, connects hearts, and drives impact.”
         </motion.blockquote>
 
-        {/* CTA Button */}
+        {/* CTA Buttons */}
         <motion.div
+          className="flex flex-col md:flex-row gap-4 mt-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.3 }}
@@ -81,6 +88,12 @@ function Hero() {
             className="px-6 py-3 bg-green-600 hover:bg-green-500 transition text-white font-semibold rounded-full shadow-lg"
           >
             Explore My Work
+          </Link>
+          <Link
+            to="/contact"
+            className="px-6 py-3 border-2 border-green-500 text-green-400 hover:bg-green-500 hover:text-white transition font-semibold rounded-full shadow-lg"
+          >
+            Let’s Work Together
           </Link>
         </motion.div>
       </motion.div>
