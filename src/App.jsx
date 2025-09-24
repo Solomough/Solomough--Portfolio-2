@@ -22,16 +22,16 @@ function App() {
         {/* Page Content */}
         <main className="flex-grow pt-20 px-6 md:px-16">
           <Routes>
-            {/* Home page with Hero merged */}
-            <Route path="/" element={<Home />} />
+            {/* Home page */}
+            <Route path="#/" element={<Home />} />
 
             {/* Other pages */}
-            <Route path="/about" element={<About />} />
-            <Route path="/skills" element={<Skills />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/booksandwritings" element={<BooksAndWritings />} />
-            <Route path="/contact" element={<Contact />} />
+            <Route path="#/about" element={<About />} />
+            <Route path="#/skills" element={<Skills />} />
+            <Route path="#/projects" element={<Projects />} />
+            <Route path="#/services" element={<Services />} />
+            <Route path="#/booksandwritings" element={<BooksAndWritings />} />
+            <Route path="#/contact" element={<Contact />} />
           </Routes>
         </main>
 
